@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Full Stack Take Home Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Included**
+- source code
+- ReadME file
 
-## Available Scripts
+### How to run 
+This app has two different servers, one for the UI and another for the backend server. First you can cd in the the root folder and run `npm install` to install all the dependencies.
+- cd into the server folder and run `node server.js` to start the backend server to be able to call the third party API.
+- in another terminal navigate to the root folder and run `npm start` to start the UI where you will be redirected to.
 
-In the project directory, you can run:
+## Solution approach
+The main goal of this challenge was to be able to get multiple pieces of information from a third party and display it. The data that we recive from the api included things like temperature, humidity, wind speed, and weather conditions. Since we have different types of information I deciede to create different components to display each specific piece. This include current weather, Wind data, air quality, and time . As well as a search bar that the user can use to search for the weather information for a specic city.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Challenges I face
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- One challenged I face was when I created all the components and tried to render them with no data recived from the server, this cause an error stating that the data we are attempting to display is not available/null. To avoid this I decided to use a skeleton component (`<Skeleton/>`) that will be displayed while the UI is waiting for the server to send the information back (either data or errors)
+- Another problem I faced was dynamically displaying the right type of icon (cloud, sun, sunny with cloud) depending on the temperature of the city. For this I found that the openweathermap API returns a icon id that you can use to request an icon image from another endpoint `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
+- On the backend A small problem I face was running into CORS issues when attempting to make a request from the UI to the backend, to solve this I added the cors middleware to the express app,, allowing request from any origin (not the best security practive but okay for this case)
 
-### `npm test`
+## Images
+|   |   |   |
+|---|---|---|
+|   |   |   |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Next steps
+If I had more time I have a few improvements that I could have implemented:
+- Better spacing & fonts for text and components (flex, grids,avoid whitespace etc) and colour selection
+- Add better error handling on the server side (creating custom middleware for error handling) & logging - Cache data we revice from API
+- Add ability for uses to track and run previous searches (cache?) and compare two cities
+- Multi-day view (working progress)
+- write more tests and create CI pipeline to check formatting, tests and integration(github actions, buildkite)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Resources
+- I used a component from [flowbite](https://flowbite.com/docs/forms/search-input/)
+- I used the  [TailwindCss](https://tailwindcss.com/) css framework for some components (styling,spacing,animation etc)
+- I used some icons from [MaterialUI](https://mui.com/material-ui/material-icons/)
