@@ -20,9 +20,9 @@ The main goal of this challenge was to be able to get multiple pieces of informa
 - On the backend A small problem I face was running into CORS issues when attempting to make a request from the UI to the backend, to solve this I added the cors middleware to the express app,, allowing request from any origin (not the best security practive but okay for this case)
 
 ## Images
-|   |   |   |
+| Skeleton State  | Error State   | Data State  |
 |---|---|---|
-|   |   |   |
+|<img width="1069" alt="Screenshot 2023-05-18 at 6 52 48 AM" src="https://github.com/YoungSudan/CoBrandTakeHome/assets/97282856/763def39-c375-4d3d-95d6-fd3f5581b43d">|<img width="1069" alt="Screenshot 2023-05-18 at 6 53 02 AM" src="https://github.com/YoungSudan/CoBrandTakeHome/assets/97282856/4038d61e-52e6-4cf0-8b1c-fadc84de54b9">|<img width="1069" alt="Screenshot 2023-05-18 at 6 52 56 AM" src="https://github.com/YoungSudan/CoBrandTakeHome/assets/97282856/ec624e23-955b-47b9-b2b0-b1cadd97c2e0">|
 
 ## Next steps
 If I had more time I have a few improvements that I could have implemented:
