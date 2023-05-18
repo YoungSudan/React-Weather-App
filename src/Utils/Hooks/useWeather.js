@@ -1,4 +1,4 @@
-const axios = require('axios')
+import axios from 'axios'
 
 export function  useWeather(city){
   axios.get(`http://localhost:4000/weather?city=${city}`)

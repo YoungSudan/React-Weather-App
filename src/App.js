@@ -37,7 +37,7 @@ function App() {
   return (
     <div>
       <div className="flex flex-col space-y-4 w-2/4 mx-auto">
-        <h1 className="text-lg py-2">Weather APP</h1>
+        <h1 className="text-lg py-2">Weather App</h1>
         <SearchBar
           handleSearch={handleSearch}
           handleCityNameChage={handleCityNameChage}

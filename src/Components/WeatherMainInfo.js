@@ -10,7 +10,7 @@ function WeatherMainInfo({weatherData}) {
     console.log("weatherData: ", weatherData)
   return (
     <div>
-        <div class="grid mb-8 border border-gray-200 text-white shadow-sm dark:border-gray-700  md:grid-cols-2">
+        <div class="grid mb-8 border border-gray-200 text-black shadow-sm dark:border-gray-700  md:grid-cols-2">
             {weatherData ? <Temp weatherData={weatherData}/> : <Skeleton/>}
             {weatherData ? <Wind weatherData={weatherData}/> : <Skeleton/>}
             {weatherData ? <Air weatherData={weatherData}/> : <Skeleton/>}

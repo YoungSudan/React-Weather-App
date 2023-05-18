@@ -1,8 +1,8 @@
-const bodyParser = require('body-parser')
-const express = require('express')
-const axios = require('axios')
-const dotenv = require("dotenv")
-const cors = require('cors')
+import bodyParser from 'body-parser'
+import express from 'express'
+import axios from 'axios'
+import * as dotenv from 'dotenv'
+import cors from 'cors'
 dotenv.config()
 
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather' 
