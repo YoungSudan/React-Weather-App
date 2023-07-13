@@ -6,6 +6,7 @@ const cors = require('cors')
 dotenv.config()
 
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather' 
+const FORECAST_URL = 'https://api.openweathermap.org/data/2.5/forecast'
 const API_KEY = process.env.WEATHER_API_KEY
 
 const app = express()
@@ -28,15 +29,28 @@ app.get('/weather', async (req, res) => {
     axios.get(`${BASE_URL}?q=${city}&APPID=${API_KEY}&units=metric`)
         .then(function (response) {
             const data = response.data
-            console.log(data);
+            res.send({"data": data, error: null})
+        })
+        .catch(function (error) {
+            res.send({
+                "data" : null,
+                "error" : "Invalid city name!"
+            })
+        })
+})
+
+app.get('/week', async (req, res) => {
+    const city = req.query.city
+    axios.get(`${FORECAST_URL}?q=${city}&APPID=${API_KEY}&units=metric&cnt=7`)
+        .then(function (response) {
+            const data = response.data
             res.send({"data": data, error: null})
         })
         .catch(function (error) {
             // handle error
-            console.log("ERROR")
             res.send({
                 "data" : null,
-                "error" : "Invalid city name!"
+                "error" : "Error getting forecast"
             })
         })
 })

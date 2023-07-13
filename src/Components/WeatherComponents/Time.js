@@ -15,7 +15,7 @@ function Time({weatherData}) {
     return time 
   }
   return (
-    <figure class="flex flex-col items-center justify-center p-8 text-center bg-white border-gray-200  dark:bg-gray-800 dark:border-gray-700">  
+    <figure class="text-slate-50 flex flex-col items-center justify-center p-8 text-center bg-white border-gray-200  dark:bg-gray-800 dark:border-gray-700">  
       <WbSunnyIcon sx={{ fontSize: 60 }}/>
       <p>{`Sunrise: ${convertUnixToTime(weatherData.sys.sunrise)}`}</p>
       <p>{`Sunset: ${convertUnixToTime(weatherData.sys.sunset)}`}</p>

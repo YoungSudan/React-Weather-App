@@ -1,13 +1,8 @@
 import React from 'react'
-import * as data from '../Utils/testData.json'
-import Skeleton from './Skeleton';
-import Temp from './WeatherMainInfo/Temp';
-import Wind from './WeatherMainInfo/Wind';
-import Air from './WeatherMainInfo/Air';
-import Time from './WeatherMainInfo/Time';
+import Skeleton from './Utility/Skeleton'
+import { Temp,Time,Air,Wind } from './WeatherComponents'
 
-function WeatherMainInfo({weatherData}) {
-    console.log("weatherData: ", weatherData)
+function CurrentWeather({weatherData}) {
   return (
     <div>
         <div class="grid mb-8 border border-gray-200 text-black shadow-sm dark:border-gray-700  md:grid-cols-2">
@@ -21,4 +16,4 @@ function WeatherMainInfo({weatherData}) {
   )
 }
 
-export default WeatherMainInfo
+export default CurrentWeather
