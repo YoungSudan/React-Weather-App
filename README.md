@@ -9,7 +9,8 @@ This app has two different servers, one for the UI and another for the backend s
 ## Images
 | Skeleton State  | Error State   | Data State  |
 |---|---|---|
-|<img width="1069" alt="Screenshot 2023-05-18 at 6 52 48 AM" src="https://github.com/YoungSudan/CoBrandTakeHome/assets/97282856/763def39-c375-4d3d-95d6-fd3f5581b43d">|<img width="1069" alt="Screenshot 2023-05-18 at 6 53 02 AM" src="https://github.com/YoungSudan/CoBrandTakeHome/assets/97282856/4038d61e-52e6-4cf0-8b1c-fadc84de54b9">|<img width="1069" alt="Screenshot 2023-05-18 at 6 52 56 AM" src="https://github.com/YoungSudan/CoBrandTakeHome/assets/97282856/ec624e23-955b-47b9-b2b0-b1cadd97c2e0">|
+|<img width="1069" alt="Screenshot 2023-05-18 at 6 52 48 AM" src="https://github.com/YoungSudan/CoBrandTakeHome/assets/97282856/763def39-c375-4d3d-95d6-fd3f5581b43d">|<img width="1069" alt="Screenshot 2023-05-18 at 6 53 02 AM" src="https://github.com/YoungSudan/CoBrandTakeHome/assets/97282856/4038d61e-52e6-4cf0-8b1c-fadc84de54b9">|<img width="984" alt="Screenshot 2023-07-13 at 4 01 16 AM" src="https://github.com/YoungSudan/React-Weather-App/assets/97282856/f7bc58cf-1dfe-4f06-89ca-a8d579fe697e">|
+
 
 ## Resources
 - I used a component from [flowbite](https://flowbite.com/docs/forms/search-input/)
