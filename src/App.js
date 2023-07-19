@@ -11,25 +11,22 @@ function App() {
   const [cityName, setCityName] = useState(null)
   const {data: currentData, error: currentError, getCurrentWeather} = useCurrentWeather(cityName)
   const {data: weekData, error: werror, getWeekWeather} = useWeekWeather(cityName)
+  
 
-
-  const handleSearch = (event) => {
-    event.preventDefault();
-    getCurrentWeather(cityName)
-    getWeekWeather(cityName)
-  }
-
-  const handleCityNameChage = (event) =>{
-    setCityName(event.target.value) 
-  } 
+  const handleCityChange = newValue => {
+    setCityName(newValue);
+    getCurrentWeather(newValue.label)
+    getWeekWeather(newValue.label)
+  };
 
   return (
     <div>
       <div className="flex flex-col space-y-4 w-2/4 mx-auto">
         <h1 className="text-lg py-2">Weather App</h1>
         <SearchBar
-          handleSearch={handleSearch}
-          handleCityNameChage={handleCityNameChage}
+          cityName={cityName}
+          setCityName={setCityName}
+          handleCityChange={handleCityChange}
         />
         {currentError ? <FlashMessage error={currentError}/> : null}
         <CurrentWeather weatherData={currentData}/>

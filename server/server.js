@@ -7,6 +7,7 @@ dotenv.config()
 
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather' 
 const FORECAST_URL = 'https://api.openweathermap.org/data/2.5/forecast'
+const GEO_URL = 'http://api.openweathermap.org/geo/1.0/direct'
 const API_KEY = process.env.WEATHER_API_KEY
 
 const app = express()
@@ -41,6 +42,20 @@ app.get('/weather', async (req, res) => {
 app.get('/week', async (req, res) => {
     const city = req.query.city
     axios.get(`${FORECAST_URL}?q=${city}&APPID=${API_KEY}&units=metric&cnt=7`)
+        .then(function (response) {
+            const data = response.data
+            res.send(data)
+        })
+        .catch(function (error) {
+            const message = error.response.data.message
+            const status = Number(error.response.data.cod)
+            res.status(status).send(message)
+        })
+})
+
+app.get('/geo', async (req, res) => {
+    const city = req.query.city
+    axios.get(`${GEO_URL}?q=${city}&APPID=${API_KEY}&limit=5`)
         .then(function (response) {
             const data = response.data
             res.send(data)
