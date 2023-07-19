@@ -1,52 +1,27 @@
 import SearchBar from "./Components/SearchBar";
 import { useState, React } from "react";
-import axios from "axios";
 import FlashMessage from "./Components/Utility/FlashMessage";
 import CurrentWeather from './Components/CurrentWeather'
 import WeekWeather from './Components/WeekWeather'
+import useCurrentWeather from "./Utils/Hooks/useCurrentWeather";
+import useWeekWeather from "./Utils/Hooks/useWeekWeather";
+
 
 function App() {
-  const [weatherData, setWeatherData] = useState(null)
-  const [weekData, setweekData] = useState(null)
+  const [cityName, setCityName] = useState(null)
+  const {data: currentData, error: currentError, getCurrentWeather} = useCurrentWeather(cityName)
+  const {data: weekData, error: werror, getWeekWeather} = useWeekWeather(cityName)
 
-  const [cityName, setCityName] = useState({})
-  const [error, setError] = useState(null)
-  const handleCityNameChage = (event) =>{
-      setCityName(event.target.value)
-  }
-
-
-  const getWeekWeather = () => {
-    axios.get(`http://localhost:4000/week?city=${cityName}`)
-      .then(function (response) {
-          const data = response.data.data
-          setweekData(data)
-      })
-      .catch(function (error) {
-          // handle error
-          //const error = response.data.error
-          setError(error)
-      })
-  }
-
-  const getCurrentWeather = () => {
-    axios.get(`http://localhost:4000/weather?city=${cityName}`)
-      .then(function (response) {
-          const data = response.data.data
-          setWeatherData(data)
-      })
-      .catch(function (error) {
-          // handle error
-          //const error = response.data.error
-          setError(error)
-      })
-  }
 
   const handleSearch = (event) => {
-      event.preventDefault()
-      getCurrentWeather()
-      getWeekWeather()
+    event.preventDefault();
+    getCurrentWeather(cityName)
+    getWeekWeather(cityName)
   }
+
+  const handleCityNameChage = (event) =>{
+    setCityName(event.target.value) 
+  } 
 
   return (
     <div>
@@ -56,8 +31,8 @@ function App() {
           handleSearch={handleSearch}
           handleCityNameChage={handleCityNameChage}
         />
-        {error ? <FlashMessage error={error}/> : null}
-        <CurrentWeather weatherData={weatherData}/>
+        {currentError ? <FlashMessage error={currentError}/> : null}
+        <CurrentWeather weatherData={currentData}/>
         <WeekWeather weekWeatherData={weekData}/>
       </div>
     </div>
